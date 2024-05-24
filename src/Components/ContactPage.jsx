@@ -10,7 +10,6 @@ const ContactPage = () => {
           borderRadius: 5,
           border: "2px solid #000",
           padding: "15px",
-          width: "80vw",
           fontSize: "2rem",
           backgroundColor: "white",
         }}

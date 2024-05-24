@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 const Pokedex = () => {
   const { state } = useLocation();
   console.log(state);
+  // if (!state || !Array.isArray(state)) {
   if (!state || !Array.isArray(state)) {
     return (
       <div>
@@ -19,7 +20,7 @@ const Pokedex = () => {
     <div>
       <div>
         <div id="pokemons">
-          {state.pokemons.map((pokemon, index) => (
+          {state.map((pokemon, index) => (
             <div key={index}>
               <p>ID: {pokemon.id}</p>
               <p>Nombre: {pokemon.name}</p>

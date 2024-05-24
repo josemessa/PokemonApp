@@ -28,7 +28,7 @@ const CreatePokemon = () => {
       weight: "",
       type: "",
     });
-    navigate("/pokedex", { state: { pokemons: aux } });
+    navigate("/pokedex", { state: aux });
   };
 
   const formPokemonHandler = (e) => {

@@ -9,24 +9,24 @@ const ContactPage = () => {
         style={{
           borderRadius: 5,
           border: "2px solid #000",
-          padding: "15px",
+          padding: "2rem",
           fontSize: "2rem",
           backgroundColor: "white",
         }}
       >
         <div>
-          <span>Nombre: </span>
+          <p>Nombre: </p>
           <span>Jose Manuel</span>
         </div>
         <div>
-          <span>Apellidos: </span>
+          <p>Apellidos: </p>
           <span>Mesa Marín</span>
         </div>
         <div>
-          <span>Ciudad: </span>
+          <p>Ciudad: </p>
           <span>Málaga</span>
         </div>
-        <span>Github: </span>
+        <p>Github: </p>
         <a href="https://github.com/josemessa">josemessa</a>
       </div>
       <div id="back">

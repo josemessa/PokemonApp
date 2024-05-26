@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { PokemonContext } from "./PokemonContext";
 
 const CreatePokemon = () => {
-  const [myPokemons, setMyPokemons] = useState(undefined);
-  const [newPokemon, setNewPokemon] = useState({
+  const { addPokemon } = useContext(PokemonContext);
+  const [nuevoPokemon, setNuevoPokemon] = useState({
     id: "",
     name: "",
     url: "",
@@ -15,12 +16,8 @@ const CreatePokemon = () => {
   const navigate = useNavigate();
 
   const registerHandler = () => {
-    let aux = myPokemons ? [...myPokemons] : [];
-    aux.push(newPokemon);
-
-    setMyPokemons(aux);
-
-    setNewPokemon({
+    addPokemon(nuevoPokemon);
+    setNuevoPokemon({
       id: "",
       name: "",
       url: "",
@@ -28,20 +25,16 @@ const CreatePokemon = () => {
       weight: "",
       type: "",
     });
-    navigate("/pokedex", { state: aux });
+    navigate("/pokedex");
   };
 
   const formPokemonHandler = (e) => {
     const { name, value } = e.target;
-    setNewPokemon((restoInputs) => ({
+    setNuevoPokemon((restoInputs) => ({
       ...restoInputs,
       [name]: name === "type" ? value.split(",") : value,
     }));
   };
-
-  useEffect(() => {
-    console.log("Pokemons registrados: ", myPokemons);
-  }, [myPokemons]);
 
   return (
     <div>
@@ -53,7 +46,7 @@ const CreatePokemon = () => {
             type="text"
             name="id"
             onChange={formPokemonHandler}
-            value={newPokemon.id}
+            value={nuevoPokemon.id}
           />
         </div>
         <div>
@@ -62,7 +55,7 @@ const CreatePokemon = () => {
             type="text"
             name="name"
             onChange={formPokemonHandler}
-            value={newPokemon.name}
+            value={nuevoPokemon.name}
           />
         </div>
         <div>
@@ -71,7 +64,7 @@ const CreatePokemon = () => {
             type="url"
             name="url"
             onChange={formPokemonHandler}
-            value={newPokemon.url}
+            value={nuevoPokemon.url}
           />
         </div>
         <div>
@@ -80,7 +73,7 @@ const CreatePokemon = () => {
             type="text"
             name="height"
             onChange={formPokemonHandler}
-            value={newPokemon.height}
+            value={nuevoPokemon.height}
           />
         </div>
         <div>
@@ -89,7 +82,7 @@ const CreatePokemon = () => {
             type="text"
             name="weight"
             onChange={formPokemonHandler}
-            value={newPokemon.weight}
+            value={nuevoPokemon.weight}
           />
         </div>
         <div>
@@ -98,7 +91,7 @@ const CreatePokemon = () => {
             type="text"
             name="type"
             onChange={formPokemonHandler}
-            value={newPokemon.type}
+            value={nuevoPokemon.type}
           />
         </div>
       </div>

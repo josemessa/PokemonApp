@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { PokemonContext } from "./PokemonContext";
+import { addPokemon, pokemonsStorage } from "../pokemonData";
 
 const CreatePokemon = () => {
-  const { addPokemon } = useContext(PokemonContext);
   const [nuevoPokemon, setNuevoPokemon] = useState({
     id: "",
     name: "",
@@ -16,6 +15,16 @@ const CreatePokemon = () => {
   const navigate = useNavigate();
 
   const registerHandler = () => {
+    const { id, name, url, height, weight, type } = nuevoPokemon;
+    if (!id || !name || !url || !height || !weight || !type) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
+    const checkIdPokemon = pokemonsStorage.find((pokemon) => pokemon.id === id);
+    if (checkIdPokemon) {
+      alert("Ese ID ya ha sido registrado");
+      return;
+    }
     addPokemon(nuevoPokemon);
     setNuevoPokemon({
       id: "",

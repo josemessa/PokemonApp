@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { PokemonContext } from "./PokemonContext";
+import { pokemonsStorage } from "../pokemonData";
 
 const Pokedex = () => {
-  const { misPokemones } = useContext(PokemonContext);
-
-  if (misPokemones.length === 0) {
+  if (pokemonsStorage.length === 0) {
     return (
       <div>
         <div>No hay datos de Pokémon disponibles</div>
@@ -21,17 +19,14 @@ const Pokedex = () => {
       <div>
         <div id="pokemons-container">
           <div id="pokemons">
-            {misPokemones.map((pokemon, index) => (
+            {pokemonsStorage.map((pokemon, index) => (
               <div key={index} id="pokemon-card">
-                <p>
-                  ID:<span>{pokemon.id}</span>
-                  <span>
-                    <img
-                      style={{ height: "50px", marginLeft: "1rem" }}
-                      src={`https://img.pokemondb.net/artwork/${pokemon.name}.jpg`}
-                      alt={`${pokemon.name}`}
-                    />
-                  </span>
+                <img
+                  src={`https://img.pokemondb.net/artwork/${pokemon.name}.jpg`}
+                  alt={`${pokemon.name}`}
+                />
+                <p id="id+img">
+                  ID: <span>{pokemon.id}</span>
                 </p>
                 <p>
                   Nombre: <span>{pokemon.name}</span>
@@ -39,11 +34,11 @@ const Pokedex = () => {
                 <p>
                   URL:
                   <span>
-                    <a href={pokemon.url}>Ir a su web</a>
+                    <a href={pokemon.url}> Ir a pokeapi</a>
                   </span>
                 </p>
                 <Link to={`/detail/${pokemon.id}`}>
-                  <button>Ver pokemon</button>
+                  <div id="ver-pokemon">Ver pokemon</div>
                 </Link>
               </div>
             ))}

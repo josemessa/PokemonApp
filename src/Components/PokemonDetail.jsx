@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import { PokemonContext } from "./PokemonContext";
+import { pokemonsStorage } from "../pokemonData";
 
 const PokemonDetail = () => {
   const { id } = useParams();
-  const { misPokemones } = useContext(PokemonContext);
 
-  const pokemon = misPokemones.find((pokemon) => pokemon.id === id);
+  const pokemon = pokemonsStorage.find((pokemon) => pokemon.id === id);
 
   if (!pokemon) {
     return (
@@ -25,6 +24,7 @@ const PokemonDetail = () => {
         <p>ID: {pokemon.id}</p>
         <div>
           <img
+            style={{ height: "100%" }}
             src={`https://img.pokemondb.net/artwork/${pokemon.name}.jpg`}
             alt={`${pokemon.name}`}
           />
@@ -39,7 +39,7 @@ const PokemonDetail = () => {
           Peso: <span>{pokemon.weight} Kg</span>
         </p>
         <p>
-          Tipo: <span>{pokemon.type.join(", ")}</span>
+          Tipo: <span>{pokemon.type.join(", " || " ")}</span>
         </p>
         <div class="buttons">
           <Link>

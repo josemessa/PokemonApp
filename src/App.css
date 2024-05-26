@@ -44,7 +44,18 @@
 span {
   font-family: monospace;
 }
-
+#pokemons-container {
+  display: flex;
+  justify-content: center;
+  #pokemons {
+    justify-content: center;
+    margin-inline: auto;
+    display: grid;
+    width: 80vw;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+}
 #nav-bar {
   background-color: white;
   border: 2px solid black;

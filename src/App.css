@@ -13,6 +13,10 @@ p {
   font-family: "pokemon";
   src: url("./assets/fonts/PocketMonk-15ze.ttf") format("truetype");
 }
+@font-face {
+  font-family: "pixel";
+  src: url("./assets/fonts/pixel.ttf") format("truetype");
+}
 
 #form-creation {
   background-color: rgb(222, 255, 255);
@@ -28,6 +32,10 @@ p {
     width: auto;
   }
 }
+input {
+  font-family: "pixel";
+  font-size: 1.5rem;
+}
 .buttons {
   display: flex;
   justify-content: space-around;
@@ -35,13 +43,13 @@ p {
 }
 #back {
   margin-inline: auto;
-  font-size: 3rem;
-  padding: 1rem;
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
   border-radius: 10px;
   margin-bottom: 2rem;
   border: 2px solid black;
   background-color: white;
-  margin-top: 2rem;
   width: fit-content;
 
   svg {
@@ -58,6 +66,10 @@ p {
     }
   }
 }
+.detail-card p span {
+  font-size: 2rem;
+}
+
 #pokemon-card {
   background-color: rgb(222, 255, 255);
   border: 6px solid black;
@@ -66,25 +78,28 @@ p {
 
   span {
     margin-right: 1rem;
+    margin-left: 1rem;
+    font-family: "pixel";
+    font-size: 1rem;
   }
   img {
     border: 2px solid black;
     background-color: white;
     padding: 1rem;
-    margin-block: 1rem;
+    margin-block: 0.5rem;
     height: 90px;
   }
   #ver-pokemon {
     border-top: 2px solid black;
     background-color: rgb(255, 204, 0);
-    padding: 1rem;
 
     color: black;
   }
 }
-span {
-  font-family: monospace;
+#card-name {
+  font-size: 1.5rem;
 }
+
 #pokemons-container {
   display: flex;
   justify-content: center;

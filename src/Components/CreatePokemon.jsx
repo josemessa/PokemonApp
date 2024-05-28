@@ -105,12 +105,7 @@ const CreatePokemon = () => {
         </div>
       </div>
       <div style={{ marginTop: "2rem", fontSize: "2rem" }}>
-        <button
-          onClick={registerHandler}
-          style={{ backgroundColor: "yellow", border: "2px solid black" }}
-        >
-          ¡Regístralo!
-        </button>
+        <button onClick={registerHandler}>¡Regístralo!</button>
       </div>
       <div id="back">
         <Link to={"/"}>

@@ -26,7 +26,7 @@ const PokemonDetail = () => {
 
   return (
     <div>
-      <div id="pokemon-card">
+      <div id="pokemon-card" class="detail-card">
         <p>ID: {pokemon.id}</p>
         <div>
           <img
@@ -39,10 +39,10 @@ const PokemonDetail = () => {
           Nombre: <span>{pokemon.name}</span>
         </p>
         <p>
-          Altura: <span>{pokemon.height} cm</span>
+          Altura: <span>{pokemon.height}</span>
         </p>
         <p>
-          Peso: <span>{pokemon.weight} Kg</span>
+          Peso: <span>{pokemon.weight}</span>
         </p>
         <p>
           Tipo: <span>{pokemon.type.join(", " || " ")}</span>

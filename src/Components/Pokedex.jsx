@@ -21,16 +21,14 @@ const Pokedex = () => {
           <div id="pokemons">
             {pokemonsStorage.map((pokemon, index) => (
               <div key={index} id="pokemon-card">
+                <p id="id+img">
+                  ID: <span>{pokemon.id}</span>
+                </p>
+                <p id="card-name">{pokemon.name}</p>
                 <img
                   src={`https://img.pokemondb.net/artwork/${pokemon.name}.jpg`}
                   alt={`${pokemon.name}`}
                 />
-                <p id="id+img">
-                  ID: <span>{pokemon.id}</span>
-                </p>
-                <p>
-                  Nombre: <span>{pokemon.name}</span>
-                </p>
                 <p>
                   URL:
                   <span>

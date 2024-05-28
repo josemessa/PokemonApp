@@ -1,4 +1,4 @@
-export const pokemonsStorage = [
+export let pokemonsStorage = [
   {
     id: "1",
     name: "bulbasaur",
@@ -83,4 +83,15 @@ export const pokemonsStorage = [
 
 export const addPokemon = (newPokemon) => {
   pokemonsStorage.push(newPokemon);
+};
+
+export const deletePokemon = (id) => {
+  pokemonsStorage = pokemonsStorage.filter((pokemon) => pokemon.id !== id);
+};
+
+export const updatePokemonName = (id, newName) => {
+  const pokemon = pokemonsStorage.find((pokemon) => pokemon.id === id);
+  if (pokemon) {
+    pokemon.name = newName;
+  }
 };

@@ -6,6 +6,7 @@ import ContactPage from "./Components/ContactPage";
 import Pokedex from "./Components/Pokedex";
 import PokemonDetail from "./Components/PokemonDetail";
 import NotFoundPage from "./Components/NotFoundPage";
+import PatchPokemon from "./Components/PatchPokemon";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/pokedex" element={<Pokedex />}></Route>
           <Route path="/detail/:id" element={<PokemonDetail />}></Route>
           <Route path="*" element={<NotFoundPage />}></Route>
+          <Route path="/patch/:id" element={<PatchPokemon />}></Route>
         </Routes>
       </BrowserRouter>
     </>
